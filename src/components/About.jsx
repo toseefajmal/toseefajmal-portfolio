@@ -44,10 +44,8 @@ const About = () => {
       <div className="pointer-events-none absolute -left-40 bottom-0 h-80 w-80 rounded-full bg-cyan-500/5 blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-
         {/* Section Heading */}
         <div className="mb-14 text-center lg:mb-20">
-
           <motion.p
             variants={SlideUp(0.2)}
             initial="hidden"
@@ -67,7 +65,8 @@ const About = () => {
           >
             A little bit
             <span className="bg-gradient-to-r from-violet-400 to-cyan-300 bg-clip-text text-transparent">
-              {" "}about me.
+              {" "}
+              about me.
             </span>
           </motion.h2>
 
@@ -85,12 +84,9 @@ const About = () => {
 
         {/* Main Content */}
         <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-
           {/* Left Profile Card */}
           <div className="mx-auto w-full max-w-md">
-
             <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-6 shadow-[0_30px_100px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:p-8">
-
               {/* Glow */}
               <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-violet-500/10 blur-3xl" />
 
@@ -167,8 +163,7 @@ const About = () => {
 
           {/* Right Content */}
           <div>
-
-            {/* Paragraph 1 - LEFT */}
+            {/* Paragraph 1 */}
             <motion.p
               variants={SlideLeft(0.3)}
               initial="hidden"
@@ -181,7 +176,7 @@ const About = () => {
               design with clean code.
             </motion.p>
 
-            {/* Paragraph 2 - RIGHT */}
+            {/* Paragraph 2 */}
             <motion.p
               variants={SlideRight(0.4)}
               initial="hidden"
@@ -197,7 +192,6 @@ const About = () => {
 
             {/* Info Cards */}
             <div className="mt-9 grid gap-4 sm:grid-cols-2">
-
               {/* Education */}
               <motion.div
                 variants={SlideUp(0.5)}
@@ -247,12 +241,10 @@ const About = () => {
                   Internship & Projects
                 </p>
               </motion.div>
-
             </div>
 
             {/* Technologies */}
             <div className="mt-9">
-
               <motion.p
                 variants={SlideLeft(0.7)}
                 initial="hidden"
@@ -283,6 +275,38 @@ const About = () => {
               </div>
             </div>
 
+            {/* Download CV */}
+            <motion.div
+              variants={SlideUp(0.9)}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              className="mt-9"
+            >
+              <a
+                href="/Toseef-Ajmal-CV.pdf"
+                download
+                className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl border border-violet-400/20 bg-gradient-to-r from-violet-500 via-indigo-500 to-violet-600 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_10px_35px_rgba(124,58,237,0.25)] transition-all duration-300 hover:-translate-y-1 hover:border-violet-300/40 hover:shadow-[0_15px_45px_rgba(124,58,237,0.45)]"
+              >
+                {/* Shine Effect */}
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+
+                {/* Download Icon */}
+                <span className="relative flex h-7 w-7 items-center justify-center rounded-lg bg-white/10 text-base backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-white/20">
+                  ↓
+                </span>
+
+                {/* Button Text */}
+                <span className="relative">
+                  Download CV
+                </span>
+
+                {/* Arrow */}
+                <span className="relative text-lg transition-transform duration-300 group-hover:translate-y-1">
+                  ↓
+                </span>
+              </a>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -291,3 +315,4 @@ const About = () => {
 };
 
 export default About;
+
