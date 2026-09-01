@@ -47,14 +47,12 @@ const Navbar = () => {
               onClick={() => handleScroll("home")}
               className="group flex items-center gap-3"
             >
-              
-
               <div className="hidden text-left sm:block">
-                <h2 className="text-sm font-semibold tracking-wide text-white">
+                <h2 className="text-[17px] font-semibold tracking-wide text-white">
                   Toseef Ajmal
                 </h2>
 
-                <p className="mt-1 text-[9px] uppercase tracking-[0.25em] text-white/35">
+                <p className="mt-1 text-[17px] uppercase tracking-[0.15em] text-white/35">
                   Frontend Developer
                 </p>
               </div>
@@ -66,7 +64,7 @@ const Navbar = () => {
                 <button
                   key={item.id}
                   onClick={() => handleScroll(item.id)}
-                  className="group relative rounded-xl px-3 py-2.5 text-[20px] font-medium text-cyan-300/70 transition-all duration-300 hover:bg-white/[0.06] hover:text-white xl:px-4"
+                  className="group relative rounded-xl px-3 py-2.5 text-[17px] font-medium text-cyan-300/70 transition-all duration-300 hover:bg-white/[0.06] hover:text-white xl:px-4"
                 >
                   {item.name}
 
@@ -84,7 +82,7 @@ const Navbar = () => {
               <div className="hidden items-center gap-2 xl:flex">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]" />
 
-                <span className="text-[11px] font-medium text-white/40">
+                <span className="text-[17px] font-medium text-white/40">
                   Available
                 </span>
               </div>
@@ -92,7 +90,7 @@ const Navbar = () => {
               {/* Desktop Let's Talk */}
               <button
                 onClick={() => handleScroll("contact")}
-                className="hidden items-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_30px_rgba(124,58,237,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:from-violet-400 hover:to-indigo-500 hover:shadow-[0_12px_35px_rgba(124,58,237,0.35)] lg:flex"
+                className="hidden items-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-600 px-5 py-2.5 text-[17px] font-semibold text-white shadow-[0_8px_30px_rgba(124,58,237,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:from-violet-400 hover:to-indigo-500 hover:shadow-[0_12px_35px_rgba(124,58,237,0.35)] lg:flex"
               >
                 Let's Talk
                 <span>↗</span>
@@ -124,7 +122,7 @@ const Navbar = () => {
                   <button
                     key={item.id}
                     onClick={() => handleScroll(item.id)}
-                    className="group flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-sm font-medium text-white/60 transition-all duration-300 hover:bg-violet-500/10 hover:text-white"
+                    className="group flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-[17px] font-medium text-white/60 transition-all duration-300 hover:bg-violet-500/10 hover:text-white"
                   >
                     <span>{item.name}</span>
 
@@ -140,14 +138,14 @@ const Navbar = () => {
                 <div className="flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]" />
 
-                  <span className="text-xs font-medium text-white/40">
+                  <span className="text-[17px] font-medium text-white/40">
                     Available for work
                   </span>
                 </div>
 
                 <button
                   onClick={() => handleScroll("contact")}
-                  className="rounded-xl bg-gradient-to-r from-violet-500 to-indigo-600 px-4 py-2 text-xs font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105"
+                  className="rounded-xl bg-gradient-to-r from-violet-500 to-indigo-600 px-4 py-2 text-[17px] font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105"
                 >
                   Let's Talk ↗
                 </button>
