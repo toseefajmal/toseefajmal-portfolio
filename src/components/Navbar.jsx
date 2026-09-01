@@ -66,7 +66,7 @@ const Navbar = () => {
                 <button
                   key={item.id}
                   onClick={() => handleScroll(item.id)}
-                  className="group relative rounded-xl px-3 py-2.5 text-[13px] font-medium text-cyan-300/70 transition-all duration-300 hover:bg-white/[0.06] hover:text-white xl:px-4"
+                  className="group relative rounded-xl px-3 py-2.5 text-[20px] font-medium text-cyan-300/70 transition-all duration-300 hover:bg-white/[0.06] hover:text-white xl:px-4"
                 >
                   {item.name}
 
