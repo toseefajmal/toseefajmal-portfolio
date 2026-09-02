@@ -178,7 +178,7 @@ const About = () => {
                   <div className="relative h-44 w-44 overflow-hidden rounded-full border-2 border-cyan-400/50 bg-slate-900 shadow-2xl shadow-cyan-500/20 sm:h-48 sm:w-48">
 
                     <img
-                      src="/ta.png"
+                      src="/ta.jpeg"
                       alt="Toseef Ajmal"
                       className="block h-full w-full rounded-full object-cover"
                     />
