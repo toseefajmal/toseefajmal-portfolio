@@ -32,7 +32,7 @@ const Navbar = () => {
       <div className="mx-auto max-w-7xl">
 
         {/* ================= NAVBAR ================= */}
-        <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0A0A0F]/80 shadow-[0_20px_70px_rgba(0,0,0,0.55)] backdrop-blur-2xl transition-all duration-500 hover:border-violet-400/20">
+        <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#080A12]/85 shadow-[0_20px_70px_rgba(0,0,0,0.55)] backdrop-blur-2xl transition-all duration-500 hover:border-violet-400/20">
 
           {/* Ambient Glow */}
           <div className="pointer-events-none absolute -left-24 -top-24 h-52 w-52 rounded-full bg-violet-600/10 blur-[90px]" />
@@ -48,32 +48,24 @@ const Navbar = () => {
             {/* ================= LOGO ================= */}
             <button
               onClick={() => handleScroll("home")}
-              className="group/logo flex cursor-pointer items-center gap-3"
+              className="group/logo flex cursor-pointer items-center"
             >
-              {/* Logo Mark */}
-              <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-violet-400/20 bg-gradient-to-br from-violet-500/20 via-indigo-500/10 to-cyan-400/10 shadow-[0_0_25px_rgba(139,92,246,0.12)] transition-all duration-300 group-hover/logo:scale-105 group-hover/logo:border-violet-400/40 group-hover/logo:shadow-[0_0_30px_rgba(139,92,246,0.25)]">
+              <div className="relative flex items-center">
 
-                {/* Inner Glow */}
-                <div className="pointer-events-none absolute inset-1 rounded-lg bg-gradient-to-br from-violet-500/10 to-cyan-400/10" />
+                {/* Logo Glow */}
+                <div className="absolute inset-0 rounded-xl bg-violet-500/20 blur-xl opacity-0 transition-all duration-500 group-hover/logo:opacity-100" />
 
-                {/* Initials */}
-                <span className="relative text-sm font-bold tracking-wide text-white">
-                  TA
-                </span>
+                {/* TA Image */}
+                <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl border border-violet-400/20 bg-gradient-to-br from-violet-500/10 via-indigo-500/10 to-cyan-400/10 shadow-[0_0_25px_rgba(139,92,246,0.12)] transition-all duration-300 group-hover/logo:scale-105 group-hover/logo:border-violet-400/40 group-hover/logo:shadow-[0_0_30px_rgba(139,92,246,0.25)]">
+                  <img
+                    src="/TA.png"
+                    alt="TA Logo"
+                    className="h-full w-full object-contain p-1.5"
+                  />
+                </div>
 
                 {/* Status Dot */}
-                <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-[#0A0A0F] bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]" />
-              </div>
-
-              {/* Logo Text */}
-              <div className="text-left">
-                <h2 className="text-[17px] font-bold tracking-wide text-white transition-all duration-300 group-hover/logo:text-violet-200">
-                  Toseef Ajmal
-                </h2>
-
-                <p className="mt-0.5 text-[10px] font-medium uppercase tracking-[0.18em] text-white/35">
-                  Frontend Developer
-                </p>
+                <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-[#080A12] bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]" />
               </div>
             </button>
 
@@ -167,9 +159,7 @@ const Navbar = () => {
                         0{index + 1}
                       </span>
 
-                      <span>
-                        {item.name}
-                      </span>
+                      <span>{item.name}</span>
                     </div>
 
                     <FiArrowUpRight className="translate-x-2 text-lg text-violet-400 opacity-0 transition-all duration-300 group-hover/mobile:translate-x-0 group-hover/mobile:opacity-100" />

@@ -1,331 +1,310 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  SlideLeft,
-  SlideRight,
-  SlideUp,
-  SlideBottom,
-} from "./Animation";
+  FiArrowRight,
+  FiPlay,
+  FiCheckCircle,
+  FiCode,
+  FiGithub,
+  FiLinkedin,
+} from "react-icons/fi";
+import { LuSparkles } from "react-icons/lu";
 
 const Hero = () => {
-  const scrollToProjects = () => {
-    document.getElementById("projects")?.scrollIntoView({
-      behavior: "smooth",
-    });
-  };
-
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({
-      behavior: "smooth",
-    });
-  };
-
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden bg-[#07070A] px-5 pb-16 pt-32 sm:px-8 md:px-12 lg:px-16"
+      className="relative min-h-screen overflow-hidden bg-slate-950 text-white"
     >
-      {/* Violet Glow */}
-      <div className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-violet-600/15 blur-[120px] sm:h-96 sm:w-96" />
+      {/* Background Glow */}
+      <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-cyan-500/20 blur-[120px]" />
+      <div className="absolute -right-32 bottom-20 h-80 w-80 rounded-full bg-blue-600/20 blur-[120px]" />
 
-      {/* Cyan Glow */}
-      <div className="pointer-events-none absolute -bottom-40 -right-32 h-80 w-80 rounded-full bg-cyan-500/10 blur-[120px] sm:h-[450px] sm:w-[450px]" />
-
-      {/* Grid */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.035]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+      {/* Grid Background */}
+      <div className="absolute inset-0 opacity-[0.04]">
+        <div
+          className="h-full w-full"
+          style={{
+            backgroundImage:
+              "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+            backgroundSize: "50px 50px",
+          }}
+        />
+      </div>
 
       {/* Main Content */}
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 py-24 sm:px-8 lg:px-12">
+        <div className="grid w-full items-center gap-14 lg:grid-cols-2 lg:gap-20">
 
-        {/* Left */}
-        <div className="text-center lg:text-left">
-
-          {/* Status */}
+          {/* Left Content */}
           <motion.div
-            variants={SlideRight(0.2)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 backdrop-blur-md"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center lg:text-left"
           >
-            <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]" />
-
-            <span className="text-xs font-medium text-white">
-              Available for freelance work
-            </span>
-          </motion.div>
-
-          {/* Intro */}
-          <motion.p
-            variants={SlideRight(0.3)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="mb-4 text-sm font-medium uppercase tracking-[0.25em] text-violet-400"
-          >
-            Hello, I'm Toseef Ajmal
-          </motion.p>
-
-          {/* Heading - LEFT */}
-          <motion.h1
-            variants={SlideRight(0.4)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-[78px]"
-          >
-            Building
-            <span className="block bg-gradient-to-r from-violet-400 via-purple-300 to-cyan-300 bg-clip-text text-transparent">
-              Digital Experiences.
-            </span>
-          </motion.h1>
-
-          {/* Description - RIGHT */}
-          <motion.p
-            variants={SlideLeft(0.5)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="mx-auto mt-7 max-w-2xl text-base leading-7 text-white sm:text-lg sm:leading-8 lg:mx-0"
-          >
-            I'm a Frontend Developer focused on creating modern,
-            responsive and high-performance web experiences using
-            React, JavaScript and Tailwind CSS.
-          </motion.p>
-
-          {/* Buttons - UP */}
-          <motion.div
-            variants={SlideUp(0.6)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="mt-9 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start"
-          >
-            <button
-              onClick={scrollToProjects}
-              className="group rounded-xl bg-gradient-to-r from-violet-500 to-indigo-600 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_35px_rgba(124,58,237,0.2)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(124,58,237,0.35)]"
-            >
-              View My Work
-
-              <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">
-                →
-              </span>
-            </button>
-
-            <button
-              onClick={scrollToContact}
-              className="rounded-xl border border-white/10 bg-white/[0.04] px-7 py-3.5 text-sm font-semibold text-white/80 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-violet-400/30 hover:bg-violet-500/10 hover:text-white"
-            >
-              Let's Talk
-            </button>
-          </motion.div>
-
-          {/* Tech Stack - BOTTOM */}
-          <motion.div
-            variants={SlideBottom(0.7)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="mt-12 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-xs text-white lg:justify-start"
-          >
-            <span>React</span>
-
-            <span className="text-violet-500">•</span>
-
-            <span>JavaScript</span>
-
-            <span className="text-violet-500">•</span>
-
-            <span>Tailwind CSS</span>
-
-            <span className="text-violet-500">•</span>
-
-            <span>Git</span>
-          </motion.div>
-        </div>
-
-        {/* Right Card */}
-        <div className="relative mx-auto w-full max-w-md lg:max-w-lg">
-
-          {/* Glow */}
-          <div className="absolute inset-10 rounded-full bg-violet-600/20 blur-[90px]" />
-
-          {/* Card */}
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-5 shadow-[0_30px_100px_rgba(0,0,0,0.5)] backdrop-blur-xl sm:p-7">
-
-            {/* Card Header */}
+            {/* Badge */}
             <motion.div
-              variants={SlideUp(0.3)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="mb-8 flex items-center justify-between"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 backdrop-blur-md"
             >
-              <div className="flex gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-                <span className="h-2.5 w-2.5 rounded-full bg-white/10" />
-                <span className="h-2.5 w-2.5 rounded-full bg-white/10" />
-              </div>
-
-              <span className="rounded-full border border-violet-400/20 bg-violet-400/10 px-3 py-1 text-[10px] uppercase tracking-wider text-violet-300">
-                Developer
-              </span>
+              <LuSparkles className="text-cyan-400" />
+              <span>Welcome to my portfolio</span>
             </motion.div>
 
-            {/* Code */}
-            <div className="space-y-4 font-mono text-xs sm:text-sm">
+            {/* Heading */}
+            <h1 className="text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
+              Hi, I'm{" "}
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-500 bg-clip-text text-transparent">
+                Toseef
+              </span>
+              <br />
+              <span className="text-slate-200">Ajmal</span>
+            </h1>
 
-              <motion.div
-                variants={SlideRight(0.4)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-              >
-                <span className="text-violet-400">const</span>{" "}
-                <span className="text-cyan-300">developer</span>{" "}
-                <span className="text-white/50">=</span>{" "}
-                <span className="text-white/70">{"{"}</span>
-              </motion.div>
-
-              <motion.div
-                variants={SlideLeft(0.5)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                className="pl-5"
-              >
-                <span className="text-white">name:</span>{" "}
-                <span className="text-emerald-300">
-                  "Toseef Ajmal"
-                </span>
-                <span className="text-white">,</span>
-              </motion.div>
-
-              <motion.div
-                variants={SlideRight(0.6)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                className="pl-5"
-              >
-                <span className="text-white">role:</span>{" "}
-                <span className="text-emerald-300">
-                  "Frontend Developer"
-                </span>
-                <span className="text-white/40">,</span>
-              </motion.div>
-
-              <motion.div
-                variants={SlideLeft(0.7)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                className="pl-5"
-              >
-                <span className="text-white">stack:</span>{" "}
-                <span className="text-white/70">[</span>
-
-                <span className="text-emerald-300">
-                  "React"
-                </span>
-
-                <span className="text-white">, </span>
-
-                <span className="text-emerald-300">
-                  "JavaScript"
-                </span>
-
-                <span className="text-white">, </span>
-
-                <span className="text-emerald-300">
-                  "Tailwind"
-                </span>
-
-                <span className="text-white/70">]</span>
-              </motion.div>
-
-              <motion.div
-                variants={SlideRight(0.8)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                className="pl-5"
-              >
-                <span className="text-white">passion:</span>{" "}
-                <span className="text-emerald-300">
-                  "Creating"
-                </span>
-              </motion.div>
-
-              <motion.div
-                variants={SlideUp(0.9)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-              >
-                <span className="text-white/70">{"}"}</span>
-              </motion.div>
-            </div>
-
-            {/* Stats */}
-            <div className="mt-10 grid grid-cols-2 gap-3">
-
-              <motion.div
-                variants={SlideBottom(0.9)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                className="rounded-2xl border border-white/10 bg-white/[0.035] p-4"
-              >
-                <p className="text-2xl font-bold text-white">
-                  3
-                </p>
-
-                <p className="mt-1 text-[11px] text-white">
-                  Projects Built
-                </p>
-              </motion.div>
-
-              <motion.div
-                variants={SlideBottom(1)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                className="rounded-2xl border border-white/10 bg-white/[0.035] p-4"
-              >
-                <p className="text-2xl font-bold text-white">
-                  6months
-                </p>
-
-                <p className="mt-1 text-[11px] text-white">
-                  Years Learning
-                </p>
-              </motion.div>
-
-            </div>
-
-            {/* Accent */}
+            {/* Role */}
             <motion.div
-              variants={SlideUp(1.1)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="mt-5 h-px w-full bg-gradient-to-r from-transparent via-violet-500/50 to-transparent"
-            />
-          </div>
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="mt-5 flex items-center justify-center gap-3 text-lg font-medium text-slate-300 sm:text-xl lg:justify-start"
+            >
+              <FiCode className="text-cyan-400" />
+              <span>Frontend & React Developer</span>
+            </motion.div>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="mx-auto mt-6 max-w-xl text-base leading-7 text-slate-400 sm:text-lg lg:mx-0"
+            >
+              I build modern, responsive and user-friendly web applications
+              using React, Tailwind CSS and modern frontend technologies.
+              I love turning ideas into beautiful digital experiences.
+            </motion.p>
+
+            {/* Features */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="mt-7 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-slate-400 lg:justify-start"
+            >
+              <div className="flex items-center gap-2">
+                <FiCheckCircle className="text-cyan-400" />
+                <span>Responsive Design</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <FiCheckCircle className="text-cyan-400" />
+                <span>Modern UI</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <FiCheckCircle className="text-cyan-400" />
+                <span>Clean Code</span>
+              </div>
+            </motion.div>
+
+            {/* Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.6 }}
+              className="mt-9 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start"
+            >
+              <a
+                href="#projects"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-7 py-3.5 font-semibold text-white shadow-lg shadow-cyan-500/20 transition duration-300 hover:-translate-y-1 hover:shadow-cyan-500/30"
+              >
+                View My Work
+                <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/60 px-7 py-3.5 font-semibold text-slate-200 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-cyan-400/50 hover:text-cyan-400"
+              >
+                Contact Me
+              </a>
+            </motion.div>
+
+            {/* Social Links */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.9, duration: 0.6 }}
+              className="mt-9 flex justify-center gap-4 lg:justify-start"
+            >
+              <a
+                href="https://github.com/toseefajmal"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-800 bg-slate-900/70 text-slate-400 transition hover:border-cyan-400/40 hover:text-cyan-400"
+              >
+                <FiGithub size={19} />
+              </a>
+
+              <a
+                href="#"
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-800 bg-slate-900/70 text-slate-400 transition hover:border-cyan-400/40 hover:text-cyan-400"
+              >
+                <FiLinkedin size={19} />
+              </a>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Visual */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, x: 50 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.9 }}
+            className="relative mx-auto w-full max-w-md"
+          >
+            {/* Outer Glow */}
+            <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-r from-cyan-500/20 to-blue-600/20 blur-3xl" />
+
+            {/* Main Card */}
+            <div className="relative rounded-[2rem] border border-slate-800 bg-slate-900/80 p-5 shadow-2xl shadow-black/30 backdrop-blur-xl sm:p-6">
+
+              {/* Top Bar */}
+              <div className="mb-5 flex items-center justify-between">
+                <div className="flex gap-2">
+                  <span className="h-3 w-3 rounded-full bg-red-400/80" />
+                  <span className="h-3 w-3 rounded-full bg-yellow-400/80" />
+                  <span className="h-3 w-3 rounded-full bg-green-400/80" />
+                </div>
+
+                <span className="text-xs text-slate-500">
+                  developer.jsx
+                </span>
+              </div>
+
+              {/* Code Window */}
+              <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5 font-mono text-sm leading-7 sm:p-6">
+                <div>
+                  <span className="text-violet-400">const</span>{" "}
+                  <span className="text-cyan-300">developer</span>{" "}
+                  <span className="text-slate-500">=</span>{" "}
+                  <span className="text-yellow-300">{"{"}</span>
+                </div>
+
+                <div className="pl-5">
+                  <span className="text-blue-400">name</span>
+                  <span className="text-slate-500">:</span>{" "}
+                  <span className="text-green-400">
+                    "Toseef Ajmal"
+                  </span>
+                  <span className="text-slate-500">,</span>
+                </div>
+
+                <div className="pl-5">
+                  <span className="text-blue-400">role</span>
+                  <span className="text-slate-500">:</span>{" "}
+                  <span className="text-green-400">
+                    "React Developer"
+                  </span>
+                  <span className="text-slate-500">,</span>
+                </div>
+
+                <div className="pl-5">
+                  <span className="text-blue-400">skills</span>
+                  <span className="text-slate-500">:</span>{" "}
+                  <span className="text-yellow-300">[</span>
+                </div>
+
+                <div className="pl-10 text-green-400">
+                  "React",
+                </div>
+
+                <div className="pl-10 text-green-400">
+                  "Tailwind CSS",
+                </div>
+
+                <div className="pl-10 text-green-400">
+                  "JavaScript",
+                </div>
+
+                <div className="pl-10 text-green-400">
+                  "HTML & CSS"
+                </div>
+
+                <div className="pl-5 text-yellow-300">
+                  ]
+                </div>
+
+                <div>
+                  <span className="text-yellow-300">{"}"}</span>
+                </div>
+              </div>
+
+              {/* Bottom Stats */}
+              <div className="mt-5 grid grid-cols-3 gap-3">
+                <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-3 text-center">
+                  <p className="text-lg font-bold text-cyan-400">3+</p>
+                  <p className="text-[11px] text-slate-500">Projects</p>
+                </div>
+
+                <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-3 text-center">
+                  <p className="text-lg font-bold text-blue-400">6+</p>
+                  <p className="text-[11px] text-slate-500">Months</p>
+                </div>
+
+                <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-3 text-center">
+                  <p className="text-lg font-bold text-violet-400">100%</p>
+                  <p className="text-[11px] text-slate-500">Passion</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Play Button */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute -right-4 -top-5 hidden rounded-2xl border border-cyan-400/20 bg-slate-900/90 p-3 shadow-xl backdrop-blur-md sm:block"
+            >
+              <FiPlay className="text-cyan-400" />
+            </motion.div>
+
+            {/* Floating Sparkles */}
+            <motion.div
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute -bottom-5 -left-4 hidden rounded-2xl border border-blue-400/20 bg-slate-900/90 p-3 shadow-xl backdrop-blur-md sm:block"
+            >
+              <LuSparkles className="text-blue-400" />
+            </motion.div>
+          </motion.div>
         </div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        animate={{ y: [0, 8, 0] }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-xs text-slate-500 sm:flex"
+      >
+        <span>Scroll Down</span>
+        <div className="h-8 w-[1px] bg-gradient-to-b from-cyan-400 to-transparent" />
+      </motion.div>
     </section>
   );
 };
 
 export default Hero;
-
