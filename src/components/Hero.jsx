@@ -1,3 +1,4 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import {
@@ -17,13 +18,14 @@ const Hero = () => {
       className="relative min-h-screen overflow-hidden bg-slate-950 text-white"
     >
       {/* Background Glow */}
-      <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-cyan-500/20 blur-[120px]" />
-      <div className="absolute -right-32 bottom-20 h-80 w-80 rounded-full bg-blue-600/20 blur-[120px]" />
+      <div className="absolute -left-32 top-20 h-72 w-72 cursor-pointer rounded-full bg-cyan-500/20 blur-[120px]" />
+
+      <div className="absolute -right-32 bottom-20 h-80 w-80 cursor-pointer rounded-full bg-blue-600/20 blur-[120px]" />
 
       {/* Grid Background */}
       <div className="absolute inset-0 opacity-[0.04]">
         <div
-          className="h-full w-full"
+          className="h-full w-full cursor-pointer"
           style={{
             backgroundImage:
               "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
@@ -48,20 +50,26 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 backdrop-blur-md"
+              className="mb-6 inline-flex cursor-pointer items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 backdrop-blur-md"
             >
-              <LuSparkles className="text-cyan-400" />
+              <LuSparkles className="cursor-pointer text-cyan-400" />
+
               <span>Welcome to my portfolio</span>
             </motion.div>
 
             {/* Heading */}
             <h1 className="text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              Hi, I'm{" "}
+              <span>Hi, I'm </span>
+
               <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-500 bg-clip-text text-transparent">
                 Toseef
               </span>
+
               <br />
-              <span className="text-slate-200">Ajmal</span>
+
+              <span className="text-slate-200">
+                Ajmal
+              </span>
             </h1>
 
             {/* Role */}
@@ -71,8 +79,11 @@ const Hero = () => {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="mt-5 flex items-center justify-center gap-3 text-lg font-medium text-slate-300 sm:text-xl lg:justify-start"
             >
-              <FiCode className="text-cyan-400" />
-              <span>Frontend & React Developer</span>
+              <FiCode className="cursor-pointer text-cyan-400" />
+
+              <span>
+                Frontend & React Developer
+              </span>
             </motion.div>
 
             {/* Description */}
@@ -94,19 +105,28 @@ const Hero = () => {
               transition={{ delay: 0.6, duration: 0.6 }}
               className="mt-7 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-slate-400 lg:justify-start"
             >
-              <div className="flex items-center gap-2">
-                <FiCheckCircle className="text-cyan-400" />
-                <span>Responsive Design</span>
+              <div className="flex cursor-pointer items-center gap-2">
+                <FiCheckCircle className="cursor-pointer text-cyan-400" />
+
+                <span>
+                  Responsive Design
+                </span>
               </div>
 
-              <div className="flex items-center gap-2">
-                <FiCheckCircle className="text-cyan-400" />
-                <span>Modern UI</span>
+              <div className="flex cursor-pointer items-center gap-2">
+                <FiCheckCircle className="cursor-pointer text-cyan-400" />
+
+                <span>
+                  Modern UI
+                </span>
               </div>
 
-              <div className="flex items-center gap-2">
-                <FiCheckCircle className="text-cyan-400" />
-                <span>Clean Code</span>
+              <div className="flex cursor-pointer items-center gap-2">
+                <FiCheckCircle className="cursor-pointer text-cyan-400" />
+
+                <span>
+                  Clean Code
+                </span>
               </div>
             </motion.div>
 
@@ -117,19 +137,26 @@ const Hero = () => {
               transition={{ delay: 0.7, duration: 0.6 }}
               className="mt-9 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start"
             >
+              {/* View Work */}
               <a
                 href="#projects"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-7 py-3.5 font-semibold text-white shadow-lg shadow-cyan-500/20 transition duration-300 hover:-translate-y-1 hover:shadow-cyan-500/30"
+                className="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-7 py-3.5 font-semibold text-white shadow-lg shadow-cyan-500/20 transition duration-300 hover:-translate-y-1 hover:shadow-cyan-500/30"
               >
-                View My Work
-                <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+                <span>
+                  View My Work
+                </span>
+
+                <FiArrowRight className="cursor-pointer transition-transform duration-300 group-hover:translate-x-1" />
               </a>
 
+              {/* Contact */}
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/60 px-7 py-3.5 font-semibold text-slate-200 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-cyan-400/50 hover:text-cyan-400"
+                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/60 px-7 py-3.5 font-semibold text-slate-200 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-cyan-400/50 hover:text-cyan-400"
               >
-                Contact Me
+                <span>
+                  Contact Me
+                </span>
               </a>
             </motion.div>
 
@@ -140,20 +167,30 @@ const Hero = () => {
               transition={{ delay: 0.9, duration: 0.6 }}
               className="mt-9 flex justify-center gap-4 lg:justify-start"
             >
+              {/* GitHub */}
               <a
                 href="https://github.com/toseefajmal"
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-800 bg-slate-900/70 text-slate-400 transition hover:border-cyan-400/40 hover:text-cyan-400"
+                aria-label="GitHub"
+                className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-xl border border-slate-800 bg-slate-900/70 text-slate-400 transition hover:border-cyan-400/40 hover:text-cyan-400"
               >
-                <FiGithub size={19} />
+                <FiGithub
+                  size={19}
+                  className="cursor-pointer"
+                />
               </a>
 
+              {/* LinkedIn */}
               <a
                 href="#"
-                className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-800 bg-slate-900/70 text-slate-400 transition hover:border-cyan-400/40 hover:text-cyan-400"
+                aria-label="LinkedIn"
+                className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-xl border border-slate-800 bg-slate-900/70 text-slate-400 transition hover:border-cyan-400/40 hover:text-cyan-400"
               >
-                <FiLinkedin size={19} />
+                <FiLinkedin
+                  size={19}
+                  className="cursor-pointer"
+                />
               </a>
             </motion.div>
           </motion.div>
@@ -166,17 +203,17 @@ const Hero = () => {
             className="relative mx-auto w-full max-w-md"
           >
             {/* Outer Glow */}
-            <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-r from-cyan-500/20 to-blue-600/20 blur-3xl" />
+            <div className="absolute inset-0 cursor-pointer rounded-[2rem] bg-gradient-to-r from-cyan-500/20 to-blue-600/20 blur-3xl" />
 
             {/* Main Card */}
-            <div className="relative rounded-[2rem] border border-slate-800 bg-slate-900/80 p-5 shadow-2xl shadow-black/30 backdrop-blur-xl sm:p-6">
+            <div className="relative cursor-pointer rounded-[2rem] border border-slate-800 bg-slate-900/80 p-5 shadow-2xl shadow-black/30 backdrop-blur-xl sm:p-6">
 
               {/* Top Bar */}
               <div className="mb-5 flex items-center justify-between">
                 <div className="flex gap-2">
-                  <span className="h-3 w-3 rounded-full bg-red-400/80" />
-                  <span className="h-3 w-3 rounded-full bg-yellow-400/80" />
-                  <span className="h-3 w-3 rounded-full bg-green-400/80" />
+                  <span className="h-3 w-3 cursor-pointer rounded-full bg-red-400/80" />
+                  <span className="h-3 w-3 cursor-pointer rounded-full bg-yellow-400/80" />
+                  <span className="h-3 w-3 cursor-pointer rounded-full bg-green-400/80" />
                 </div>
 
                 <span className="text-xs text-slate-500">
@@ -185,79 +222,136 @@ const Hero = () => {
               </div>
 
               {/* Code Window */}
-              <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5 font-mono text-sm leading-7 sm:p-6">
+              <div className="cursor-pointer rounded-2xl border border-slate-800 bg-slate-950 p-5 font-mono text-sm leading-7 sm:p-6">
+
                 <div>
-                  <span className="text-violet-400">const</span>{" "}
-                  <span className="text-cyan-300">developer</span>{" "}
-                  <span className="text-slate-500">=</span>{" "}
-                  <span className="text-yellow-300">{"{"}</span>
+                  <span className="cursor-pointer text-violet-400">
+                    const
+                  </span>{" "}
+
+                  <span className="cursor-pointer text-cyan-300">
+                    developer
+                  </span>{" "}
+
+                  <span className="cursor-pointer text-slate-500">
+                    =
+                  </span>{" "}
+
+                  <span className="cursor-pointer text-yellow-300">
+                    {"{"}
+                  </span>
                 </div>
 
                 <div className="pl-5">
-                  <span className="text-blue-400">name</span>
-                  <span className="text-slate-500">:</span>{" "}
-                  <span className="text-green-400">
+                  <span className="cursor-pointer text-blue-400">
+                    name
+                  </span>
+
+                  <span className="text-slate-500">
+                    :
+                  </span>{" "}
+
+                  <span className="cursor-pointer text-green-400">
                     "Toseef Ajmal"
                   </span>
-                  <span className="text-slate-500">,</span>
+
+                  <span className="text-slate-500">
+                    ,
+                  </span>
                 </div>
 
                 <div className="pl-5">
-                  <span className="text-blue-400">role</span>
-                  <span className="text-slate-500">:</span>{" "}
-                  <span className="text-green-400">
+                  <span className="cursor-pointer text-blue-400">
+                    role
+                  </span>
+
+                  <span className="text-slate-500">
+                    :
+                  </span>{" "}
+
+                  <span className="cursor-pointer text-green-400">
                     "React Developer"
                   </span>
-                  <span className="text-slate-500">,</span>
+
+                  <span className="text-slate-500">
+                    ,
+                  </span>
                 </div>
 
                 <div className="pl-5">
-                  <span className="text-blue-400">skills</span>
-                  <span className="text-slate-500">:</span>{" "}
-                  <span className="text-yellow-300">[</span>
+                  <span className="cursor-pointer text-blue-400">
+                    skills
+                  </span>
+
+                  <span className="text-slate-500">
+                    :
+                  </span>{" "}
+
+                  <span className="cursor-pointer text-yellow-300">
+                    [
+                  </span>
                 </div>
 
-                <div className="pl-10 text-green-400">
+                <div className="cursor-pointer pl-10 text-green-400">
                   "React",
                 </div>
 
-                <div className="pl-10 text-green-400">
+                <div className="cursor-pointer pl-10 text-green-400">
                   "Tailwind CSS",
                 </div>
 
-                <div className="pl-10 text-green-400">
+                <div className="cursor-pointer pl-10 text-green-400">
                   "JavaScript",
                 </div>
 
-                <div className="pl-10 text-green-400">
+                <div className="cursor-pointer pl-10 text-green-400">
                   "HTML & CSS"
                 </div>
 
-                <div className="pl-5 text-yellow-300">
+                <div className="cursor-pointer pl-5 text-yellow-300">
                   ]
                 </div>
 
                 <div>
-                  <span className="text-yellow-300">{"}"}</span>
+                  <span className="cursor-pointer text-yellow-300">
+                    {"}"}
+                  </span>
                 </div>
               </div>
 
               {/* Bottom Stats */}
               <div className="mt-5 grid grid-cols-3 gap-3">
-                <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-3 text-center">
-                  <p className="text-lg font-bold text-cyan-400">3+</p>
-                  <p className="text-[11px] text-slate-500">Projects</p>
+
+                <div className="cursor-pointer rounded-xl border border-slate-800 bg-slate-950/70 p-3 text-center">
+                  <p className="text-lg font-bold text-cyan-400">
+                    3+
+                  </p>
+
+                  <p className="text-[11px] text-slate-500">
+                    Projects
+                  </p>
                 </div>
 
-                <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-3 text-center">
-                  <p className="text-lg font-bold text-blue-400">6+</p>
-                  <p className="text-[11px] text-slate-500">Months</p>
+                <div className="cursor-pointer rounded-xl border border-slate-800 bg-slate-950/70 p-3 text-center">
+                  <p className="text-lg font-bold text-blue-400">
+                    6+
+                  </p>
+
+                  <p className="text-[11px] text-slate-500">
+                    Months
+                  </p>
                 </div>
 
-                <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-3 text-center">
-                  <p className="text-lg font-bold text-violet-400">100%</p>
-                  <p className="text-[11px] text-slate-500">Passion</p>
+                <div className="cursor-pointer rounded-xl border border-slate-800 bg-slate-950/70 p-3 text-center">
+                  <p className="text-lg font-bold text-violet-400">
+                    100%
+                  </p>
+
+                  <p className="text-[11px] text-slate-500">
+                    Passion
+                  </p>
                 </div>
+
               </div>
             </div>
 
@@ -269,9 +363,9 @@ const Hero = () => {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="absolute -right-4 -top-5 hidden rounded-2xl border border-cyan-400/20 bg-slate-900/90 p-3 shadow-xl backdrop-blur-md sm:block"
+              className="absolute -right-4 -top-5 hidden cursor-pointer rounded-2xl border border-cyan-400/20 bg-slate-900/90 p-3 shadow-xl backdrop-blur-md sm:block"
             >
-              <FiPlay className="text-cyan-400" />
+              <FiPlay className="cursor-pointer text-cyan-400" />
             </motion.div>
 
             {/* Floating Sparkles */}
@@ -282,9 +376,9 @@ const Hero = () => {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="absolute -bottom-5 -left-4 hidden rounded-2xl border border-blue-400/20 bg-slate-900/90 p-3 shadow-xl backdrop-blur-md sm:block"
+              className="absolute -bottom-5 -left-4 hidden cursor-pointer rounded-2xl border border-blue-400/20 bg-slate-900/90 p-3 shadow-xl backdrop-blur-md sm:block"
             >
-              <LuSparkles className="text-blue-400" />
+              <LuSparkles className="cursor-pointer text-blue-400" />
             </motion.div>
           </motion.div>
         </div>
@@ -300,11 +394,15 @@ const Hero = () => {
         }}
         className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-xs text-slate-500 sm:flex"
       >
-        <span>Scroll Down</span>
-        <div className="h-8 w-[1px] bg-gradient-to-b from-cyan-400 to-transparent" />
+        <span>
+          Scroll Down
+        </span>
+
+        <div className="h-8 w-[1px] cursor-pointer bg-gradient-to-b from-cyan-400 to-transparent" />
       </motion.div>
     </section>
   );
 };
 
 export default Hero;
+
