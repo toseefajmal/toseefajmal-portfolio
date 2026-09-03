@@ -109,7 +109,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="lg:pl-12">
-            <h3 className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-white">
+            <h3 className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-white ">
               Quick Links
             </h3>
 
@@ -118,9 +118,9 @@ const Footer = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="group flex w-fit items-center gap-2 text-left text-sm text-gray-400 transition duration-300 hover:text-white"
+                  className="group flex w-fit items-center gap-2 text-left text-sm cursor-pointer text-gray-400 transition duration-300 hover:text-white"
                 >
-                  <span className="h-1 w-1 rounded-full bg-violet-400 opacity-0 transition duration-300 group-hover:opacity-100" />
+                  <span className="h-1 w-1 rounded-full bg-violet-400 opacity-0 transition duration-300 group-hover:opacity-100 " />
 
                   {item.name}
                 </button>
