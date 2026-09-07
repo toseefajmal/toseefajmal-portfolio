@@ -18,7 +18,7 @@ const Projects = () => {
       image: "/project1.png",
       technologies: ["React", "Tailwind CSS", "JavaScript"],
       liveLink: "https://food-mart-zvdx.vercel.app/",
-      githubLink: "#",
+      githubLink: "https://github.com/toseefajmal",
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ const Projects = () => {
       image: "/project2.png",
       technologies: ["React", "Tailwind CSS", "API"],
       liveLink: "https://vihla-commerce.vercel.app/",
-      githubLink: "#",
+      githubLink: "https://github.com/toseefajmal",
     },
     {
       id: 3,
@@ -38,7 +38,7 @@ const Projects = () => {
       image: "/project3.png",
       technologies: ["React", "Tailwind CSS", "Framer Motion"],
       liveLink: "https://gym-website-tan-tau.vercel.app/",
-      githubLink: "#",
+      githubLink: "https://github.com/toseefajmal",
     },
     {
       id: 4,
@@ -49,7 +49,7 @@ const Projects = () => {
       technologies: ["React", "Tailwind CSS", "JavaScript"],
       liveLink:
         "https://edu-sphere-4jinci9a6-toseefajmal07-3946s-projects.vercel.app/",
-      githubLink: "#",
+      githubLink: "https://github.com/toseefajmal",
     },
   ];
 
