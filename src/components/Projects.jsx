@@ -1,14 +1,17 @@
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   FiArrowUpRight,
   FiGithub,
   FiExternalLink,
   FiCode,
+  FiLayers,
 } from "react-icons/fi";
 
 const Projects = () => {
+  const [activeProject, setActiveProject] = useState(0);
+
   const projects = [
     {
       id: 1,
@@ -53,211 +56,509 @@ const Projects = () => {
     },
   ];
 
+  const project = projects[activeProject];
+
   return (
     <section
       id="projects"
-      className="relative overflow-hidden bg-slate-950 px-6 py-24 text-white sm:px-8 lg:px-12"
+      className="relative overflow-hidden bg-[#05070b] px-4 py-24 text-white sm:px-8 lg:px-12"
     >
-      {/* ================= BACKGROUND GLOW ================= */}
+      {/* Background Glows */}
+      <motion.div
+        animate={{
+          x: [0, 30, 0],
+          y: [0, -20, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="pointer-events-none absolute left-0 top-40 h-80 w-80 rounded-full bg-cyan-500/[0.04] blur-[120px]"
+      />
 
-      <div className="pointer-events-none absolute -left-40 top-20 h-80 w-80 rounded-full bg-cyan-500/10 blur-[130px]" />
+      <motion.div
+        animate={{
+          x: [0, -30, 0],
+          y: [0, 20, 0],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="pointer-events-none absolute bottom-20 right-0 h-96 w-96 rounded-full bg-violet-500/[0.04] blur-[140px]"
+      />
 
-      <div className="pointer-events-none absolute -right-40 bottom-20 h-96 w-96 rounded-full bg-blue-600/10 blur-[140px]" />
+      <div className="relative z-10 mx-auto max-w-6xl">
 
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/5 blur-[120px]" />
-
-      {/* ================= GRID BACKGROUND ================= */}
-
-      <div className="pointer-events-none absolute inset-0 opacity-[0.025]">
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage:
-              "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
-            backgroundSize: "50px 50px",
-          }}
-        />
-      </div>
-
-      {/* ================= MAIN CONTAINER ================= */}
-
-      <div className="relative z-10 mx-auto max-w-7xl">
-
-        {/* ================= SECTION HEADER ================= */}
-
+        {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 35 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mx-auto mb-16 max-w-3xl text-center"
+          transition={{ duration: 0.6 }}
+          className="mb-12 text-center"
         >
-          {/* Badge */}
+          <div className="mb-4 inline-flex items-center gap-2 text-sm font-medium text-cyan-400">
+            <FiCode />
+            <span>Selected Work</span>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 backdrop-blur-md"
-          >
-            <FiCode className="text-cyan-400" />
-
-            <span>My Recent Work</span>
-          </motion.div>
-
-          {/* Heading */}
-
-          <h2 className="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-            Featured{" "}
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-500 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            My{" "}
+            <span className="bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
               Projects
             </span>
           </h2>
 
-          {/* Description */}
-
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-400 sm:text-lg">
-            Here are some of the projects I have built using modern frontend
-            technologies, responsive design and clean reusable components.
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base">
+            A collection of projects I have built using modern technologies,
+            responsive layouts and reusable components.
           </p>
         </motion.div>
 
-        {/* ================= PROJECTS GRID ================= */}
+        {/* Main Project Area */}
+        <div className="grid items-stretch gap-6 lg:grid-cols-2">
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {/* LEFT PREMIUM PROJECT NAVIGATION */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.025] p-3"
+          >
+            {/* Top Label */}
+            <div className="mb-2 flex items-center justify-between px-4 py-3">
+              <div className="flex items-center gap-2">
+                <FiLayers className="text-cyan-400" size={15} />
 
-          {projects.map((project, index) => (
-            <motion.article
-              key={project.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.12,
-              }}
-              whileHover={{ y: -8 }}
-              className="group relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/70 shadow-2xl shadow-black/20 backdrop-blur-xl"
-            >
-
-              {/* ================= IMAGE ================= */}
-
-              <div className="relative h-56 overflow-hidden bg-slate-950">
-
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
-                />
-
-                {/* Image Overlay */}
-
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90" />
-
-                {/* Project Number */}
-
-                <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-400/20 bg-slate-950/80 text-sm font-bold text-cyan-400 shadow-lg backdrop-blur-md">
-                  0{project.id}
-                </div>
-
-                {/* External Icon */}
-
-                <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700 bg-slate-950/80 text-slate-300 backdrop-blur-md transition duration-300 group-hover:border-cyan-400/40 group-hover:text-cyan-400">
-                  <FiArrowUpRight size={19} />
-                </div>
-
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  Projects
+                </span>
               </div>
 
-              {/* ================= CONTENT ================= */}
+              <span className="text-xs text-slate-600">
+                {String(activeProject + 1).padStart(2, "0")} / 04
+              </span>
+            </div>
 
-              <div className="relative p-6">
+            {/* Project Items */}
+            <div className="space-y-1">
+              {projects.map((item, index) => {
+                const active = activeProject === index;
 
-                {/* Title */}
+                return (
+                  <motion.button
+                    key={item.id}
+                    onClick={() => setActiveProject(index)}
+                    whileHover={{ x: 5 }}
+                    whileTap={{ scale: 0.985 }}
+                    className={`group relative w-full cursor-pointer overflow-hidden rounded-xl px-4 py-5 text-left transition-all duration-300 ${
+                      active
+                        ? "border border-cyan-400/10 bg-gradient-to-r from-cyan-400/[0.08] to-transparent"
+                        : "border border-transparent hover:bg-white/[0.035]"
+                    }`}
+                  >
+                    {/* Active Glow */}
+                    {active && (
+                      <motion.div
+                        layoutId="active-project-glow"
+                        className="absolute inset-0 bg-cyan-400/[0.025]"
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 30,
+                        }}
+                      />
+                    )}
 
-                <h3 className="text-xl font-bold text-slate-100 transition duration-300 group-hover:text-cyan-400">
-                  {project.title}
-                </h3>
+                    <div className="relative flex items-center gap-4">
 
-                {/* Description */}
+                      {/* Number */}
+                      <motion.div
+                        animate={
+                          active
+                            ? {
+                                scale: [1, 1.08, 1],
+                              }
+                            : {
+                                scale: 1,
+                              }
+                        }
+                        transition={{
+                          duration: 2,
+                          repeat: active ? Infinity : 0,
+                        }}
+                        className={`flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-lg border text-xs font-bold ${
+                          active
+                            ? "border-cyan-400/20 bg-cyan-400/10 text-cyan-400"
+                            : "border-white/[0.06] bg-white/[0.02] text-slate-600"
+                        }`}
+                      >
+                        0{item.id}
+                      </motion.div>
 
-                <p className="mt-3 min-h-[72px] text-sm leading-6 text-slate-400">
-                  {project.description}
-                </p>
+                      {/* Title + Small Info */}
+                      <div className="min-w-0 flex-1">
+                        <div
+                          className={`text-base font-semibold transition-colors duration-300 ${
+                            active
+                              ? "text-white"
+                              : "text-slate-500 group-hover:text-slate-300"
+                          }`}
+                        >
+                          {item.title}
+                        </div>
 
-                {/* ================= TECHNOLOGIES ================= */}
+                        <div
+                          className={`mt-1 text-xs transition-colors ${
+                            active
+                              ? "text-cyan-400/70"
+                              : "text-slate-700 group-hover:text-slate-600"
+                          }`}
+                        >
+                          {item.technologies[0]}{" "}
+                          <span className="mx-1">•</span>{" "}
+                          {item.technologies[1]}
+                        </div>
+                      </div>
 
-                <div className="mt-5 flex flex-wrap gap-2">
+                      {/* Arrow */}
+                      <motion.div
+                        animate={
+                          active
+                            ? {
+                                x: [0, 4, 0],
+                                opacity: 1,
+                              }
+                            : {
+                                x: 5,
+                                opacity: 0.25,
+                              }
+                        }
+                        transition={{
+                          duration: 1.5,
+                          repeat: active ? Infinity : 0,
+                          ease: "easeInOut",
+                        }}
+                        className={`shrink-0 cursor-pointer ${
+                          active
+                            ? "text-cyan-400"
+                            : "text-slate-700 group-hover:text-slate-500"
+                        }`}
+                      >
+                        <FiArrowUpRight size={19} />
+                      </motion.div>
+                    </div>
 
-                  {project.technologies.map((technology) => (
-                    <span
-                      key={technology}
-                      className="rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-1.5 text-xs font-medium text-slate-300 transition duration-300 group-hover:border-cyan-400/20 group-hover:text-cyan-300"
-                    >
-                      {technology}
-                    </span>
-                  ))}
+                    {/* Active Bottom Line */}
+                    {active && (
+                      <motion.div
+                        layoutId="active-project-line"
+                        className="absolute bottom-0 left-4 right-4 h-px bg-gradient-to-r from-cyan-400/60 via-cyan-400/20 to-transparent"
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 30,
+                        }}
+                      />
+                    )}
+                  </motion.button>
+                );
+              })}
+            </div>
 
-                </div>
+            {/* Bottom Info */}
+            <div className="mt-3 border-t border-white/[0.05] px-4 py-4">
+              <div className="flex items-center justify-between">
+                <span className="text-xs text-slate-600">
+                  Featured work
+                </span>
 
-                {/* ================= BUTTONS ================= */}
+                <motion.span
+                  animate={{
+                    opacity: [0.4, 1, 0.4],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                  }}
+                  className="flex cursor-pointer items-center gap-1.5 text-xs text-cyan-400/70"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                  Available
+                </motion.span>
+              </div>
+            </div>
+          </motion.div>
 
-                <div className="mt-6 flex gap-3">
+          {/* RIGHT PREMIUM PREVIEW */}
+          <div className="min-w-0">
 
-                  {/* Live Demo */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={project.id}
+                initial={{
+                  opacity: 0,
+                  scale: 0.96,
+                  y: 20,
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.97,
+                  y: -15,
+                }}
+                transition={{
+                  duration: 0.45,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                whileHover={{
+                  y: -6,
+                  transition: { duration: 0.3 },
+                }}
+                className="group relative h-full cursor-pointer overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.025]"
+              >
 
-                  <a
+                {/* Animated Border */}
+                <motion.div
+                  animate={{
+                    opacity: [0.15, 0.4, 0.15],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="pointer-events-none absolute inset-0 z-20 rounded-2xl border border-cyan-400/30"
+                />
+
+                {/* Image */}
+                <div className="group relative h-56 cursor-pointer overflow-hidden bg-[#090b10] sm:h-64">
+
+                  <motion.img
+                    key={project.image}
+                    initial={{
+                      scale: 1.12,
+                      opacity: 0.4,
+                    }}
+                    animate={{
+                      scale: 1,
+                      opacity: 1,
+                    }}
+                    transition={{
+                      duration: 0.7,
+                      ease: "easeOut",
+                    }}
+                    whileHover={{
+                      scale: 1.06,
+                    }}
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full cursor-pointer object-cover"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#05070b] via-[#05070b]/20 to-transparent" />
+
+                  {/* Moving Light */}
+                  <motion.div
+                    animate={{
+                      x: ["-100%", "200%"],
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      repeatDelay: 2,
+                      ease: "easeInOut",
+                    }}
+                    className="pointer-events-none absolute inset-y-0 w-24 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
+                  />
+
+                  {/* Number */}
+                  <motion.div
+                    initial={{ y: -10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                    className="absolute left-4 top-4 cursor-pointer rounded-lg border border-white/10 bg-black/40 px-3 py-1.5 text-xs font-medium text-slate-300 backdrop-blur-md"
+                  >
+                    0{project.id}
+                  </motion.div>
+
+                  {/* External Link */}
+                  <motion.a
                     href={project.liveLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="group/btn inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/10 transition duration-300 hover:-translate-y-1 hover:shadow-cyan-500/25"
+                    whileHover={{
+                      scale: 1.1,
+                      rotate: 5,
+                    }}
+                    whileTap={{
+                      scale: 0.95,
+                    }}
+                    className="absolute right-4 top-4 flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg border border-white/10 bg-black/40 text-slate-300 backdrop-blur-md transition-colors hover:border-cyan-400/40 hover:text-cyan-400"
                   >
-                    <span>Live Demo</span>
-
-                    <FiExternalLink
-                      size={16}
-                      className="transition-transform duration-300 group-hover/btn:translate-x-1"
-                    />
-                  </a>
-
-                  {/* GitHub */}
-
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${project.title} GitHub`}
-                    className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-700 bg-slate-950/70 text-slate-400 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:text-cyan-400"
-                  >
-                    <FiGithub size={18} />
-                  </a>
-
+                    <FiArrowUpRight size={17} />
+                  </motion.a>
                 </div>
-              </div>
 
-              {/* ================= CARD BOTTOM GLOW ================= */}
+                {/* Content */}
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: 10,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    delay: 0.15,
+                    duration: 0.4,
+                  }}
+                  className="p-5 sm:p-6"
+                >
+                  <motion.h3
+                    key={project.title}
+                    initial={{
+                      opacity: 0,
+                      x: -10,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      x: 0,
+                    }}
+                    transition={{
+                      duration: 0.35,
+                    }}
+                    className="text-2xl font-bold text-white"
+                  >
+                    {project.title}
+                  </motion.h3>
 
-              <div className="pointer-events-none absolute -bottom-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl opacity-0 transition duration-500 group-hover:opacity-100" />
+                  <motion.p
+                    key={project.description}
+                    initial={{
+                      opacity: 0,
+                    }}
+                    animate={{
+                      opacity: 1,
+                    }}
+                    transition={{
+                      delay: 0.08,
+                      duration: 0.35,
+                    }}
+                    className="mt-3 text-sm leading-6 text-slate-400"
+                  >
+                    {project.description}
+                  </motion.p>
 
-            </motion.article>
-          ))}
+                  {/* Technologies */}
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {project.technologies.map((technology, index) => (
+                      <motion.span
+                        key={technology}
+                        initial={{
+                          opacity: 0,
+                          y: 8,
+                        }}
+                        animate={{
+                          opacity: 1,
+                          y: 0,
+                        }}
+                        transition={{
+                          delay: 0.1 + index * 0.08,
+                        }}
+                        whileHover={{
+                          y: -3,
+                        }}
+                        className="cursor-pointer rounded-md border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-slate-400 transition-colors hover:border-cyan-400/30 hover:text-cyan-400"
+                      >
+                        {technology}
+                      </motion.span>
+                    ))}
+                  </div>
 
+                  {/* Buttons */}
+                  <div className="mt-6 flex gap-2">
+
+                    <motion.a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      whileHover={{
+                        y: -2,
+                        scale: 1.01,
+                      }}
+                      whileTap={{
+                        scale: 0.97,
+                      }}
+                      className="inline-flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-cyan-400"
+                    >
+                      Live Demo
+                      <FiExternalLink size={15} />
+                    </motion.a>
+
+                    <motion.a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${project.title} GitHub`}
+                      whileHover={{
+                        y: -2,
+                        scale: 1.05,
+                      }}
+                      whileTap={{
+                        scale: 0.95,
+                      }}
+                      className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-white/10 text-slate-400 transition-colors hover:border-cyan-400/40 hover:text-cyan-400"
+                    >
+                      <FiGithub size={17} />
+                    </motion.a>
+
+                  </div>
+                </motion.div>
+
+                {/* Bottom Glow */}
+                <motion.div
+                  animate={{
+                    opacity: [0, 0.25, 0],
+                    scale: [0.8, 1.1, 0.8],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="pointer-events-none absolute -bottom-20 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-cyan-400/20 blur-3xl"
+                />
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
 
-        {/* ================= BOTTOM ================= */}
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="mt-14 text-center"
-        >
-          <p className="text-sm text-slate-500">
-            More projects coming soon...
-          </p>
-        </motion.div>
-
+        {/* Indicators */}
+        <div className="mt-8 flex justify-center gap-2">
+          {projects.map((item, index) => (
+            <motion.button
+              key={item.id}
+              onClick={() => setActiveProject(index)}
+              whileHover={{ scale: 1.2 }}
+              className={`h-1 cursor-pointer rounded-full transition-all duration-300 ${
+                activeProject === index
+                  ? "w-8 bg-cyan-400"
+                  : "w-2 bg-slate-700"
+              }`}
+              aria-label={`Show ${item.title}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
