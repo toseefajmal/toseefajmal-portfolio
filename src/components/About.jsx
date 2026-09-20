@@ -348,9 +348,10 @@ const About = () => {
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.25 }}
           className="mt-5"
         >
+          {/* Services Heading */}
           <div className="mb-4 flex items-center justify-between">
             <div>
               <p className="text-xs uppercase tracking-wider text-slate-500">
@@ -362,28 +363,78 @@ const About = () => {
               </h3>
             </div>
 
-            <FiArrowUpRight className="text-slate-600" />
+            <motion.div
+              initial={{ opacity: 0, rotate: -20 }}
+              whileInView={{ opacity: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <FiArrowUpRight className="text-slate-600" />
+            </motion.div>
           </div>
 
+          {/* Service Cards */}
           <div className="grid gap-4 md:grid-cols-3">
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.2 }}
-                className="group cursor-pointer rounded-2xl border border-white/10 bg-white/[0.035] p-5 transition-colors hover:border-violet-400/20"
+                initial={{
+                  opacity: 0,
+                  y: 35,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                  amount: 0.25,
+                }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                  ease: "easeOut",
+                }}
+                whileHover={{
+                  y: -7,
+                  transition: {
+                    duration: 0.25,
+                  },
+                }}
+                className="group relative cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] p-5 transition-all duration-300 hover:border-violet-400/50 hover:bg-violet-400/[0.04] hover:shadow-[0_0_30px_rgba(139,92,246,0.12)]"
               >
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-violet-300">
-                  {service.icon}
-                </div>
+                {/* Top Glow Line */}
+                <div className="absolute left-1/2 top-0 h-px w-0 -translate-x-1/2 bg-gradient-to-r from-transparent via-violet-400 to-transparent transition-all duration-500 group-hover:w-3/4" />
 
-                <h4 className="text-base font-medium text-white">
+                {/* Icon */}
+                <motion.div
+                  whileHover={{
+                    scale: 1.08,
+                    rotate: 3,
+                  }}
+                  transition={{ duration: 0.2 }}
+                  className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-violet-300 transition-all duration-300 group-hover:border-violet-400/30 group-hover:bg-violet-400/10 group-hover:text-violet-200"
+                >
+                  {service.icon}
+                </motion.div>
+
+                {/* Title */}
+                <h4 className="text-base font-medium text-white transition-colors duration-300 group-hover:text-violet-200">
                   {service.title}
                 </h4>
 
-                <p className="mt-2 text-sm leading-6 text-slate-500">
+                {/* Description */}
+                <p className="mt-2 text-sm leading-6 text-slate-500 transition-colors duration-300 group-hover:text-slate-400">
                   {service.text}
                 </p>
+
+                {/* Arrow */}
+                <div className="mt-4 flex justify-end">
+                  <FiArrowUpRight className="text-violet-400 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100" />
+                </div>
+
+                {/* Bottom Glow */}
+                <div className="pointer-events-none absolute -bottom-10 left-1/2 h-20 w-20 -translate-x-1/2 rounded-full bg-violet-500/10 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
               </motion.div>
             ))}
           </div>

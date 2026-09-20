@@ -132,46 +132,57 @@ const Skills = () => {
     {
       name: "HTML5",
       icon: <SiHtml5 />,
+      color: "text-orange-400",
     },
     {
       name: "CSS3",
       icon: <SiCss />,
+      color: "text-blue-400",
     },
     {
       name: "JavaScript",
       icon: <SiJavascript />,
+      color: "text-yellow-400",
     },
     {
       name: "React.js",
       icon: <SiReact />,
+      color: "text-cyan-400",
     },
     {
       name: "Tailwind CSS",
       icon: <SiTailwindcss />,
+      color: "text-sky-400",
     },
     {
       name: "PHP",
       icon: <SiPhp />,
+      color: "text-indigo-400",
     },
     {
       name: "Laravel",
       icon: <SiLaravel />,
+      color: "text-red-500",
     },
     {
       name: "MySQL",
       icon: <SiMysql />,
+      color: "text-blue-500",
     },
     {
       name: "Git",
       icon: <SiGit />,
+      color: "text-orange-500",
     },
     {
       name: "GitHub",
       icon: <SiGithub />,
+      color: "text-white",
     },
     {
       name: "VS Code",
       icon: <SiVscodium />,
+      color: "text-blue-400",
     },
   ];
 
@@ -200,7 +211,6 @@ const Skills = () => {
       />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-
         {/* HEADER */}
         <div className="mx-auto mb-6 max-w-3xl text-center lg:mb-7">
           <motion.div
@@ -262,7 +272,6 @@ const Skills = () => {
               <div className="absolute -inset-[1px] rounded-[1.5rem] bg-gradient-to-br from-violet-500 via-cyan-400 to-fuchsia-500 opacity-0 blur-[1px] transition duration-500 group-hover:opacity-80" />
 
               <div className="relative h-full overflow-hidden rounded-[1.5rem] border border-white/[0.08] bg-[#0A0A0F]/95 p-6 backdrop-blur-xl transition-all duration-500 group-hover:border-transparent group-hover:shadow-[0_25px_80px_rgba(0,0,0,.55)]">
-
                 <div className="absolute right-5 top-5 text-[10px] font-bold tracking-[0.25em] text-white/15 transition-colors duration-300 group-hover:text-violet-300/50">
                   {category.number}
                 </div>
@@ -322,7 +331,6 @@ const Skills = () => {
                     <FiArrowUpRight className="text-sm text-white/25 transition duration-300 group-hover:text-violet-300" />
                   </motion.div>
                 </div>
-
               </div>
             </motion.div>
           ))}
@@ -355,13 +363,17 @@ const Skills = () => {
               (skill, index) => (
                 <div
                   key={`${skill.name}-${index}`}
-                  className="flex shrink-0 cursor-pointer items-center gap-3 rounded-full border border-white/[0.07] bg-white/[0.025] px-4 py-2 transition-all duration-300 hover:border-violet-400/25 hover:bg-violet-500/[0.05]"
+                  className="group flex shrink-0 cursor-pointer items-center gap-3 rounded-full border border-white/[0.07] bg-white/[0.025] px-4 py-2 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_20px_rgba(139,92,246,0.12)]"
                 >
-                  <span className="text-lg text-white/60">
+                  <span
+                    className={`text-lg transition-all duration-300 group-hover:scale-110 ${skill.color}`}
+                  >
                     {skill.icon}
                   </span>
 
-                  <span className="text-xs font-medium text-white/35">
+                  <span
+                    className={`text-xs font-medium transition-colors duration-300 ${skill.color}`}
+                  >
                     {skill.name}
                   </span>
                 </div>
@@ -382,7 +394,6 @@ const Skills = () => {
           <div className="absolute -inset-[1px] rounded-[2rem] bg-gradient-to-r from-violet-500/50 via-cyan-400/40 to-fuchsia-500/50 opacity-50 blur-[2px]" />
 
           <div className="relative overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#08080D]/95 p-6 shadow-[0_30px_100px_rgba(0,0,0,.5)] backdrop-blur-2xl sm:p-8 lg:p-10">
-
             {/* Background Glows */}
             <div className="pointer-events-none absolute -left-40 top-0 h-80 w-80 rounded-full bg-violet-600/[0.08] blur-[100px]" />
 
@@ -400,10 +411,8 @@ const Skills = () => {
 
             {/* HEADER */}
             <div className="relative z-10 mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-
               <div>
                 <div className="mb-4 flex items-center gap-3">
-
                   <motion.div
                     animate={{
                       rotate: [0, 5, -5, 0],
@@ -425,7 +434,6 @@ const Skills = () => {
 
                     <div className="mt-1 h-px w-20 bg-gradient-to-r from-violet-400 to-transparent" />
                   </div>
-
                 </div>
 
                 <h3 className="text-3xl font-black tracking-tight sm:text-4xl">
@@ -443,7 +451,6 @@ const Skills = () => {
 
               {/* STATUS */}
               <div className="flex cursor-pointer items-center gap-3 self-start rounded-full border border-emerald-400/10 bg-emerald-400/[0.04] px-4 py-2 transition duration-300 hover:border-emerald-400/25 hover:bg-emerald-400/[0.07] lg:self-auto">
-
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
 
@@ -453,13 +460,11 @@ const Skills = () => {
                 <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-300/70">
                   Currently Learning
                 </span>
-
               </div>
             </div>
 
             {/* TECHNOLOGY CARDS */}
             <div className="relative z-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-
               {skills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
@@ -476,17 +481,14 @@ const Skills = () => {
                   }}
                   className="group relative cursor-pointer"
                 >
-
                   {/* Card Glow */}
                   <div
                     className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-br ${skill.color} opacity-0 blur-md transition duration-500 group-hover:opacity-40`}
                   />
 
                   <div className="relative overflow-hidden rounded-2xl border border-white/[0.07] bg-[#0C0C12]/90 p-5 backdrop-blur-xl transition-all duration-500 group-hover:border-white/[0.14]">
-
                     {/* Top */}
                     <div className="flex items-start justify-between">
-
                       <motion.div
                         whileHover={{
                           scale: 1.12,
@@ -500,12 +502,10 @@ const Skills = () => {
                       <span className="cursor-pointer text-[11px] font-bold text-white/30 transition-colors group-hover:text-white/70">
                         {skill.level}%
                       </span>
-
                     </div>
 
                     {/* Name */}
                     <div className="mt-5">
-
                       <h4 className="text-sm font-bold text-white transition-colors group-hover:text-violet-200">
                         {skill.name}
                       </h4>
@@ -513,14 +513,11 @@ const Skills = () => {
                       <p className="mt-1 text-[9px] uppercase tracking-[0.2em] text-white/20">
                         {skill.category}
                       </p>
-
                     </div>
 
                     {/* Progress */}
                     <div className="mt-5">
-
                       <div className="relative h-1.5 overflow-hidden rounded-full bg-white/[0.06]">
-
                         <motion.div
                           initial={{ width: 0 }}
                           whileInView={{
@@ -536,11 +533,9 @@ const Skills = () => {
                           }}
                           className={`absolute left-0 top-0 h-full cursor-pointer rounded-full bg-gradient-to-r ${skill.color} shadow-[0_0_12px_rgba(139,92,246,.45)]`}
                         />
-
                       </div>
 
                       <div className="mt-2 flex items-center justify-between">
-
                         <span className="text-[8px] uppercase tracking-widest text-white/15">
                           Skill Level
                         </span>
@@ -548,25 +543,20 @@ const Skills = () => {
                         <span className="text-[8px] uppercase tracking-widest text-white/20">
                           Advanced
                         </span>
-
                       </div>
-
                     </div>
 
                     {/* Bottom Glow */}
                     <div
                       className={`pointer-events-none absolute -bottom-10 left-1/2 h-20 w-20 -translate-x-1/2 rounded-full bg-gradient-to-r ${skill.color} opacity-0 blur-3xl transition duration-500 group-hover:opacity-30`}
                     />
-
                   </div>
                 </motion.div>
               ))}
-
             </div>
 
             {/* MOVING TECHNOLOGY STRIP */}
             <div className="relative z-10 mt-8 overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.015] py-3">
-
               <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-[#08080D] to-transparent" />
 
               <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-[#08080D] to-transparent" />
@@ -586,19 +576,21 @@ const Skills = () => {
                   (skill, index) => (
                     <div
                       key={`${skill.name}-${index}`}
-                      className="flex shrink-0 cursor-pointer items-center gap-2"
+                      className="group flex shrink-0 cursor-pointer items-center gap-2"
                     >
-
-                      <span className="text-base text-violet-300/50">
+                      <span
+                        className={`text-base transition-all duration-300 group-hover:scale-110 ${skill.color}`}
+                      >
                         {skill.icon}
                       </span>
 
-                      <span className="text-[10px] font-medium uppercase tracking-wider text-white/25">
+                      <span
+                        className={`text-[10px] font-medium uppercase tracking-wider transition-colors duration-300 ${skill.color}`}
+                      >
                         {skill.name}
                       </span>
 
                       <span className="h-1 w-1 rounded-full bg-cyan-400/30" />
-
                     </div>
                   )
                 )}
@@ -607,7 +599,6 @@ const Skills = () => {
 
             {/* FOOTER STATS */}
             <div className="relative z-10 mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-
               <div className="cursor-pointer rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center transition duration-300 hover:border-violet-400/20 hover:bg-violet-500/[0.03]">
                 <p className="text-xl font-black text-white">
                   {skills.length}+
@@ -647,9 +638,7 @@ const Skills = () => {
                   Passion
                 </p>
               </div>
-
             </div>
-
           </div>
         </motion.div>
 
@@ -662,7 +651,6 @@ const Skills = () => {
           className="mt-4 text-center"
         >
           <div className="inline-flex items-center gap-3 rounded-full border border-white/[0.06] bg-white/[0.02] px-5 py-3">
-
             <div className="flex h-5 w-5 items-center justify-center rounded-full bg-violet-500/10">
               <FiCheck className="text-xs text-violet-300" />
             </div>
@@ -676,27 +664,21 @@ const Skills = () => {
                 Always improving.
               </span>
             </p>
-
           </div>
         </motion.div>
 
         {/* DECORATION */}
         <div className="mx-auto mt-2 flex items-center justify-center gap-4">
-
           <span className="h-px w-24 bg-gradient-to-r from-transparent to-violet-400/20" />
 
           <span className="relative flex h-2 w-2">
-
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-40" />
 
             <span className="relative inline-flex h-2 w-2 rounded-full bg-gradient-to-r from-violet-400 to-cyan-300 shadow-[0_0_20px_rgba(139,92,246,.8)]" />
-
           </span>
 
           <span className="h-px w-24 bg-gradient-to-l from-transparent to-cyan-400/20" />
-
         </div>
-
       </div>
     </section>
   );
